@@ -1,0 +1,54 @@
+<header class="header">
+	<h1>todo</h1>
+  <input 
+    on-enter={ this.addTodo(title) } 
+    r-model={ title } 
+    class="new-todo" 
+    placeholder="What needs to be done?" 
+    autofocus
+  >
+</header>
+{#if !!todos.length}
+<section class="main">
+	<input r-model={ allCompleted } class="toggle-all" type="checkbox">
+	<label for="toggle-all">Mark all as complete</label>
+	<ul class="todo-list">
+		{#list activeTodos as todo}
+    <todoItem 
+      todo={ todo }
+      on-remove={ this.removeTodo(todo_index) }
+      on-edit={ this.editTodo(todo_index) }
+      on-toggle={ this.editTodo(todo_index) }
+    ></todoItem>
+		{/list}
+	</ul>
+</section>
+<footer class="footer">
+	<span class="todo-count"><strong>{ activeCount }</strong> { activeCount > 1 ? 'items' : 'item' } left</span>
+	<ul class="filters">
+		<li>
+      <a 
+        r-class={ {selected: list === 'all' } }
+        on-click={ activeTodos = this.todoSelector('all') }
+      >All</a>
+		</li>
+		<li>
+      <a 
+        r-class={ {selected: list === 'active'} }
+        on-click={ activeTodos = this.todoSelector('active') }
+      >Active</a>
+		</li>
+		<li>
+      <a 
+        r-class={ {selected: list === 'compeleted'} }
+        on-click={ activeTodos = this.todoSelector('compeleted') }
+      >Completed</a>
+		</li>
+	</ul>
+  <button 
+    r-hide={ !completedLength } 
+    on-click={ this.clearCompleted() } 
+    class="clear-completed"
+  >Clear completed</button>
+</footer>
+{/if}

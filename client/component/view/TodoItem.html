@@ -1,0 +1,19 @@
+<li r-class={ {'completed': todo.completed, 'editing': todo.editing} }>
+	<div class="view">
+    <input 
+      on-click={ this.toggle() } 
+      class="toggle" 
+      type="checkbox"
+      r-model={ todo.completed }
+    >
+		<label on-dblclick={ this.editing() }>{todo.title}</label>
+		<button on-click="remove" class="destroy"></button>
+	</div>
+  <input 
+    on-enter={ this.editTodo() } 
+    on-blur={ this.editTodo() } 
+    on-esc={ this.cancelEdit() } 
+    r-model={ todo.title } 
+    ref="edit" class="edit" value=""
+  >
+</li>
