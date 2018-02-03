@@ -5,10 +5,10 @@ author: [yrq110](https://github.com/yrq110)
 ## Dev
 ### Command
 ``` bash
-// install requirements
+# install requirements
 npm install
-// run
-npm run dev // project will served at http://localhost:8888/
+# run
+npm run dev # project will served at http://localhost:8888/
 ```
 
 ### Default Conf
