@@ -8,7 +8,7 @@ author: [yrq110](https://github.com/yrq110)
 # install requirements
 npm install
 # run
-npm run dev # project will served at http://localhost:8888/
+npm run dev # serve at http://localhost:8888/
 ```
 
 ### Default Conf
