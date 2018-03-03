@@ -27,7 +27,7 @@
 	<span class="todo-count"><strong>{ activeCount }</strong> { activeCount > 1 ? 'items' : 'item' } left</span>
 	<ul class="filters">
 		<li>
-      <a 
+      <a
         r-class={ {selected: list === 'all' } }
         on-click={ activeTodos = this.todoSelector('all') }
       >All</a>

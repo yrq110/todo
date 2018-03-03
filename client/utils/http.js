@@ -39,15 +39,22 @@ NEJ.define([
       type: 'json',
       method: 'post',
       data: newTodo,
-      mode: 0
+      mode: 0,
+      onload: function (_data) {
+        console.log(_data)
+      }
     });
+    
   };
   _p._$deleteTodoById = function (id) {
     _x._$request('/todo/del/' + id, {
       sync: false,
       type: 'json',
       method: 'delete',
-      mode: 0
+      mode: 0,
+      onload: function (_data) {
+        console.log(_data)
+      }
     });
   };
   _p._$editTodo = function (editedTodo) {
@@ -56,7 +63,10 @@ NEJ.define([
       type: 'json',
       method: 'put',
       data: editedTodo,
-      mode: 0
+      mode: 0,
+      onload: function (_data) {
+        console.log(_data)
+      }
     });
   }
   return _p;
